@@ -17,7 +17,7 @@ export default defineConfig({
     timeout: 180_000,
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
-        baseURL: process.env.TARGET_URL,
+        baseURL: process.env.TARGET_URL, //example: 'https://en.wikipedia.org/',
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: 'on',
         actionTimeout: 60_000,

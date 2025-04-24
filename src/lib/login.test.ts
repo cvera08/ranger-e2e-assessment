@@ -20,8 +20,7 @@ test('Sign in to Wikipedia', async ({ page }) => {
     }
 
     // Navigate to the Wikipedia login page using the base URL from config
-   //await page.goto('/w/index.php?title=Special:UserLogin'); // This uses the baseURL defined in playwright.config.ts
-   await page.goto('https://en.wikipedia.org/w/index.php?title=Special:UserLogin');
+   await page.goto('/w/index.php?title=Special:UserLogin'); // This uses the baseURL defined in playwright.config.ts - example: https://en.wikipedia.org/w/index.php?title=Special:UserLogin
 
     // Fill in the username and password fields
     await page.fill('#wpName1', wikipediaUsername);
@@ -31,8 +30,6 @@ test('Sign in to Wikipedia', async ({ page }) => {
     await page.click('#wpLoginAttempt');
     
     // Wait for the login to complete (ensure the user is logged in)
-    //await page.waitForSelector('.welcome-logged-in');
-    //await page.waitForSelector('#pt-userpage');
     await page.waitForSelector('div#mp-welcome h1');
     
     // Save the authenticated session state to a file
