@@ -23,6 +23,6 @@ export async function run(page: Page, params: {}) {
     });
 
     await test.step('Validate text size options', async () => {
-        //await verifyTextSizeChange(page);
+        await verifyTextSizeChange(page);
     });
 }
