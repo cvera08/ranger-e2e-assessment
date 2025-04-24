@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page, test } from '@playwright/test';
 import { searchWikipediaForArtificialIntelligence } from '../modules/searchWikipedia.page';
 
 /**
@@ -19,5 +19,8 @@ import { searchWikipediaForArtificialIntelligence } from '../modules/searchWikip
  */
 export async function run(page: Page, params: {}) {
     const expectedUser = 'ElegantEgotist'; // Expected username who made the latest edit
-    await searchWikipediaForArtificialIntelligence(page, expectedUser);
+    
+    await test.step('Search for Artificial Intelligence on Wikipedia', async () => {
+        await searchWikipediaForArtificialIntelligence(page, expectedUser);
+    });
 }
