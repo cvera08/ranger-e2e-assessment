@@ -45,11 +45,6 @@ export const verifyTextSizeChange = async (page: Page): Promise<void> => {
     // TODO: At this point, we expect that clicking these options would work. 
     // However,there is a known issue with these buttons being disabled due to a bug [found by automation].
     // Assessment note: In a real scenario, these actions should be performed, but currently, they will fail.
-    
-    // Notes for the reviewer: 
-    // - Performing the click only would be enough to validate the visibility and check if the element is enabled. 
-    // But in this case there is currently a bug I think it may help in the debugging (basically the test can't click because the element is visible but disabled)
-    // - Sorry I couldn't make the real assertions for the text size, I think it's possible using JS in the dev tools, but it is time consuming and maybe not the idea of this assessment
 
     // Notes for the reviewer: 
     // - Performing the click action alone would be sufficient to validate the visibility and ensure the element is enabled. 

@@ -1,5 +1,11 @@
 # Technical Assessment for QA Engineer at Ranger
 
+## Demo Videos
+
+- [Demo Video 1](https://github.com/user-attachments/assets/7c109e4c-c9a0-4b42-955c-26d645cd65b0)
+- [Demo Video 2](https://github.com/user-attachments/assets/657653da-cd74-48e5-a612-f927d77e3661)
+
+
 ## Overview
 
 In this exercise, you will work with Playwright (written in TypeScript) to create and complete three automated tests for Wikipedia.
