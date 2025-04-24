@@ -1,4 +1,5 @@
 import { Page, expect } from '@playwright/test';
+import { verifyTextSizeChange } from '../modules/wikipediaHomePage.page';
 
 /**
  * This test was generated using Ranger's test recording tool. The test is supposed to:
@@ -13,22 +14,5 @@ import { Page, expect } from '@playwright/test';
  * Good luck!
  */
 export async function run(page: Page, params: {}) {
-    /** STEP: Navigate to URL */
-    await page.goto('https://en.wikipedia.org/wiki/Main_Page');
-
-    /** STEP: Click the link to view the total number of articles in English */
-    const totalArticlesLink = page.getByRole('link', { name: '6,970,005' });
-    await totalArticlesLink.click();
-
-    /** STEP: Select the 'Small' text size option in the appearance settings */
-    const smallTextSizeOption = page.getByRole('radio', { name: 'Small' });
-    await smallTextSizeOption.click();
-
-    /** STEP: Click the 'Large' text size option to change the display size */
-    const largeTextSizeOption = page.getByRole('radio', { name: 'Large' });
-    await largeTextSizeOption.click();
-
-    /** STEP: Click the 'Standard' text size option in the appearance settings */
-    const standardTextSizeButton = page.getByLabel('Standard').first();
-    await standardTextSizeButton.click();
+    await verifyTextSizeChange(page);
 }
