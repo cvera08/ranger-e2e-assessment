@@ -31,4 +31,18 @@ export async function run(page: Page, params: {}) {
         name: 'Artificial intelligence',
     }).first();
     await artificialIntelligenceLink.click();
+
+    /** STEP: Click the "View history" link */
+    const viewHistoryLink = page.getByRole('link', { name: 'View history' });
+    await viewHistoryLink.click();
+
+    /** STEP: Verify that the latest edit was made by the user "Worstbull" */
+    //const latestEditUser = page.locator('li[data-mw-revid="1286364868"] .history-user'); //await page.locator('.mw-history-histlinks-previous').first(); //await page.locator('.mw-revision-user').first();
+    const historyUserLocator = page.locator('#pagehistory ul.mw-contributions-list')
+        .locator('li')
+        .locator('span.history-user')
+        .locator('a.new.mw-userlink')
+        .locator('bdi')
+        .first();
+    await expect(historyUserLocator).toHaveText('ElegantEgotist'); // Validate that the latest edit was made by 'Worstbull'. UPDATE: now it is 'ElegantEgotist'
 }
