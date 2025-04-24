@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import { verifyTextSizeChange } from '../modules/wikipediaHomePage.page';
+import { assertTotalArticlesLessThan, verifyTextSizeChange } from '../modules/wikipediaHomePage.page';
 
 /**
  * This test was generated using Ranger's test recording tool. The test is supposed to:
@@ -18,19 +18,8 @@ export async function run(page: Page, params: {}) {
     await page.goto('https://en.wikipedia.org/wiki/Main_Page');
 
     /** STEP: Assert there are less than 7,000,000 articles in English */
-    // Wait for the element to be visible
-    const totalArticlesLink = page.locator('a[href="/wiki/Special:Statistics"]').nth(1);
-    await totalArticlesLink.waitFor({ state: 'visible' });
-
-    const totalArticlesText = await totalArticlesLink.textContent();
-    
-    if (totalArticlesText === null) {
-        throw new Error('Total articles text is null');
-    }
-
-    const totalArticlesNumber = parseInt(totalArticlesText.replace(/[^0-9]/g, ''));
-    expect(totalArticlesNumber).toBeLessThan(7000000);
+    await assertTotalArticlesLessThan(page, 7000000);
 
     /** STEP: Perform the text size validation */
-    //await verifyTextSizeChange(page);
+    await verifyTextSizeChange(page);
 }

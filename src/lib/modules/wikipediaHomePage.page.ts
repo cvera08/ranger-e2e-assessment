@@ -2,7 +2,7 @@ import { Page, Locator , expect} from '@playwright/test';
 
 // Locator for the total articles link - using a more flexible approach
 const totalArticlesLink = (page: Page): Locator =>
-    page.locator('a[href="/wiki/Special:Statistics"]').first(); // Link to the statistics page
+    page.locator('a[href="/wiki/Special:Statistics"]').nth(1);
 
 // Locator for the "Small" text size option
 const smallTextSizeOption = (page: Page): Locator =>
@@ -15,6 +15,21 @@ const largeTextSizeOption = (page: Page): Locator =>
 // Locator for the "Standard" text size option
 const standardTextSizeButton = (page: Page): Locator =>
     page.getByLabel('Standard');
+
+// Function to assert the total articles number
+export const assertTotalArticlesLessThan = async (page: Page, limit: number): Promise<void> => {
+    /** STEP: Assert there are less than the specified number of articles in English */
+    const totalArticlesLinkLocator = totalArticlesLink(page);
+    const totalArticlesText = await totalArticlesLinkLocator.textContent();
+    
+    if (totalArticlesText === null) {
+        throw new Error('Total articles text is null');
+    }
+
+    const totalArticlesNumber = parseInt(totalArticlesText.replace(/[^0-9]/g, ''));
+    expect(totalArticlesNumber).toBeLessThan(limit);
+};
+
 
 // Function to perform the test actions
 export const verifyTextSizeChange = async (page: Page): Promise<void> => {
