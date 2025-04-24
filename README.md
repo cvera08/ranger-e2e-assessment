@@ -55,8 +55,11 @@ Make sure that the only files that you edit are `login.test.ts`, `searchWikipedi
 # Install dependencies
 npm install
 
-# Install Playwright browsers
+# Optional: Install Playwright browsers
 npx playwright install
+
+# Mandatory: Install Playwright browsers
+npx playwright install chromium
 ```
 
 ### Running Tests
