@@ -80,6 +80,14 @@ Add `.only` to the specific test you want to run in isolation in `all.test.ts` a
 npm run test
 ```
 
+#### Run a single test
+
+For example the `login` one:
+
+```bash
+npx playwright test src/lib/login.test.ts --headed --config src/lib/playwright.config.ts
+```
+
 ## Need Help?
 
 If you run into any technical issues during the assessment, do your best to unblock yourself. If you really cannot proceed or are done with the task, email megan@ranger.net.

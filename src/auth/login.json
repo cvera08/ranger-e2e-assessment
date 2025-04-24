@@ -5,7 +5,7 @@
       "value": "1",
       "domain": "en.wikipedia.org",
       "path": "/",
-      "expires": 1745603718.83577,
+      "expires": 1745604131.23947,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
@@ -15,7 +15,7 @@
       "value": "24-Apr-2025",
       "domain": "en.wikipedia.org",
       "path": "/",
-      "expires": 1748260800.836121,
+      "expires": 1748260800.239716,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -25,7 +25,7 @@
       "value": "24-Apr-2025",
       "domain": ".wikipedia.org",
       "path": "/",
-      "expires": 1748260800.836593,
+      "expires": 1748260800.240403,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -45,7 +45,7 @@
       "value": "0.001",
       "domain": "en.wikipedia.org",
       "path": "/",
-      "expires": 1745520918.836698,
+      "expires": 1745521331.24051,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
@@ -55,7 +55,7 @@
       "value": "24-Apr-2025",
       "domain": "auth.wikimedia.org",
       "path": "/",
-      "expires": 1748260800.389531,
+      "expires": 1748260800.80706,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -75,7 +75,7 @@
       "value": "0.001",
       "domain": "auth.wikimedia.org",
       "path": "/",
-      "expires": 1745520919.389755,
+      "expires": 1745521331.807238,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
@@ -85,7 +85,7 @@
       "value": "24-Apr-2025",
       "domain": "login.wikimedia.org",
       "path": "/",
-      "expires": 1748260800.568584,
+      "expires": 1748260800.998997,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -95,14 +95,14 @@
       "value": "0.001",
       "domain": "login.wikimedia.org",
       "path": "/",
-      "expires": 1745520919.568715,
+      "expires": 1745521332.999152,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "enwikimwuser-sessionId",
-      "value": "5d6b530f0544bd35ef00",
+      "value": "cd9df366c3266d420ed4",
       "domain": "auth.wikimedia.org",
       "path": "/",
       "expires": -1,
@@ -112,7 +112,7 @@
     },
     {
       "name": "authSession",
-      "value": "q13eufa3fi7keaohj58tsabm1emo7p9e",
+      "value": "mtcreorq870k39uvtd6dolo2ca67n47n",
       "domain": "auth.wikimedia.org",
       "path": "/",
       "expires": -1,
@@ -125,7 +125,7 @@
       "value": "49576855",
       "domain": "auth.wikimedia.org",
       "path": "/",
-      "expires": 1748109321.346467,
+      "expires": 1748109734.878848,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -135,7 +135,7 @@
       "value": "Cvera08",
       "domain": "auth.wikimedia.org",
       "path": "/",
-      "expires": 1748109321.346524,
+      "expires": 1748109734.878939,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -145,14 +145,14 @@
       "value": "Cvera08",
       "domain": "auth.wikimedia.org",
       "path": "/",
-      "expires": 1748109321.34658,
+      "expires": 1748109734.879017,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "centralauth_Session",
-      "value": "ddebc9ceeff1c2d11091f8c39a7346f2",
+      "value": "17e37b39af83809f7e202d07375b27d1",
       "domain": "auth.wikimedia.org",
       "path": "/",
       "expires": -1,
@@ -162,20 +162,20 @@
     },
     {
       "name": "loginnotify_prevlogins",
-      "value": "2025-1hfmxmx-7myyzdtch64o8k0zmglfsdr01021w3m",
+      "value": "2025-8n3btz-1i3lv76sdklnez8vjwhd8766f2gawrh",
       "domain": "auth.wikimedia.org",
       "path": "/",
-      "expires": 1761069321.34685,
+      "expires": 1761069734.879146,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "cpPosIndex",
-      "value": "2%401745517321%2399af86d9d6f1667bcdd273617e90b4a7",
+      "value": "1%401745517734%2399af86d9d6f1667bcdd273617e90b4a7",
       "domain": "auth.wikimedia.org",
       "path": "/",
-      "expires": 1745517331.346904,
+      "expires": 1745517744.879219,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -185,14 +185,14 @@
       "value": "master",
       "domain": "auth.wikimedia.org",
       "path": "/",
-      "expires": 1745517331.347029,
+      "expires": 1745517744.879293,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "enwikiSession",
-      "value": "clvrijvbu1p0grv4clgnn3id6cqucc6t",
+      "value": "omk2tnfg938bhid8ojbuunu6t9k3udhk",
       "domain": "en.wikipedia.org",
       "path": "/",
       "expires": -1,
@@ -205,7 +205,7 @@
       "value": "49576855",
       "domain": "en.wikipedia.org",
       "path": "/",
-      "expires": 1748109322.146499,
+      "expires": 1748109735.643828,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -215,7 +215,7 @@
       "value": "Cvera08",
       "domain": "en.wikipedia.org",
       "path": "/",
-      "expires": 1748109322.14654,
+      "expires": 1748109735.643872,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -225,14 +225,14 @@
       "value": "Cvera08",
       "domain": ".wikipedia.org",
       "path": "/",
-      "expires": 1748109322.146577,
+      "expires": 1748109735.643913,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "centralauth_Session",
-      "value": "02d2a16fa079119868911da6c90f2e89",
+      "value": "61f971895f272785942b41711c3f9562",
       "domain": ".wikipedia.org",
       "path": "/",
       "expires": -1,
@@ -245,7 +245,7 @@
       "value": "cce",
       "domain": "en.wikipedia.org",
       "path": "/",
-      "expires": 1745539200.747962,
+      "expires": 1745539201.067845,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -261,7 +261,7 @@
         },
         {
           "name": "wmE-sessionTickLastTickTime",
-          "value": "1745517320378"
+          "value": "1745517733835"
         }
       ]
     }
