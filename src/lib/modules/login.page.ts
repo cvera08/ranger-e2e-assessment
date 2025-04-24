@@ -9,6 +9,10 @@ const passwordField = (page: Page): Locator =>
 const loginButton = (page: Page): Locator => 
     page.getByRole('button', { name: 'Log in' });
 
+const welcomeToWikipediaLabel = (page: Page): Locator => 
+    page.getByRole('heading', { name: /welcome to wikipedia/i });
+
+
 // optional - nice to have
 const loginErrorMessage = (page: Page): Locator =>
     page.getByText('Incorrect username or password.');
@@ -19,5 +23,5 @@ export const loginToWikipedia = async (page: Page, username: string, password: s
     await loginButton(page).click();
     
     // Wait for login to be successful or fail
-    await page.waitForSelector('div#mp-welcome h1');
+    await welcomeToWikipediaLabel(page).waitFor(); //similar to await page.waitForSelector('div#mp-welcome h1');
 };
