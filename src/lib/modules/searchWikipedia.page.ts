@@ -20,7 +20,7 @@ const historyUserLocator = (page: Page): Locator =>
         .locator('bdi')
         .first();
 
-export const searchWikipediaForArtificialIntelligence = async (page: Page): Promise<void> => {
+export const searchWikipediaForArtificialIntelligence = async (page: Page, expectedUser: string): Promise<void> => {
     await page.goto('https://www.wikipedia.org/');
 
     // Enter search term 'artificial' into the search input field
@@ -31,6 +31,6 @@ export const searchWikipediaForArtificialIntelligence = async (page: Page): Prom
 
     await viewHistoryLink(page).click();
 
-    // Verify the latest edit was made by 'ElegantEgotist'
-    await expect(historyUserLocator(page)).toHaveText('ElegantEgotist'); // Update: now it is 'ElegantEgotist'
+    // Verify the latest edit was made by the expected user (e.g., 'ElegantEgotist')
+    await expect(historyUserLocator(page)).toHaveText(expectedUser);
 };

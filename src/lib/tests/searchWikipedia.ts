@@ -18,5 +18,6 @@ import { searchWikipediaForArtificialIntelligence } from '../modules/searchWikip
  * Good luck!
  */
 export async function run(page: Page, params: {}) {
-    await searchWikipediaForArtificialIntelligence(page);
+    const expectedUser = 'ElegantEgotist'; // Expected username who made the latest edit
+    await searchWikipediaForArtificialIntelligence(page, expectedUser);
 }
