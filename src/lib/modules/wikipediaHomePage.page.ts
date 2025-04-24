@@ -18,9 +18,6 @@ const standardTextSizeButton = (page: Page): Locator =>
 
 // Function to perform the test actions
 export const verifyTextSizeChange = async (page: Page): Promise<void> => {
-    /** STEP: Navigate to URL */
-    await page.goto('https://en.wikipedia.org/wiki/Main_Page');
-
     /** STEP: Click the link to view the total number of articles in English */
     await totalArticlesLink(page).click();
 
