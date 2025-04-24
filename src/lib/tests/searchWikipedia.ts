@@ -29,6 +29,6 @@ export async function run(page: Page, params: {}) {
     /** STEP: Click the 'Artificial Intelligence' link in the search suggestions */
     const artificialIntelligenceLink = page.getByRole('link', {
         name: 'Artificial intelligence',
-    });
+    }).first();
     await artificialIntelligenceLink.click();
 }

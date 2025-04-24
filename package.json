@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "test": "npx playwright test --config src/lib/playwright.config.ts"
+        "test": "npx playwright test --config src/lib/playwright.config.ts",
+        "login": "npx playwright test src/lib/login.test.ts --headed --config src/lib/playwright.config.ts"
     },
     "dependencies": {
         "@playwright/test": "^1.45.1",
