@@ -1,22 +1,54 @@
-import { Page, Locator , expect} from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
-// Locator for the total articles link - using a more flexible approach
+/**
+ * Locator for the total articles link on the Wikipedia homepage.
+ * This locator targets the link that shows the total number of articles in English on Wikipedia.
+ *
+ * @param page - Playwright Page instance
+ * @returns A Locator instance pointing to the total articles link
+ */
 const totalArticlesLink = (page: Page): Locator =>
     page.locator('a[href="/wiki/Special:Statistics"]').nth(1);
 
-// Locator for the "Small" text size option
+/**
+ * Locator for the 'Small' text size option in the appearance settings.
+ * This locator targets the radio button for selecting 'Small' text size.
+ *
+ * @param page - Playwright Page instance
+ * @returns A Locator instance pointing to the 'Small' text size radio button
+ */
 const smallTextSizeOption = (page: Page): Locator =>
     page.getByRole('radio', { name: 'Small' });
 
-// Locator for the "Large" text size option
+/**
+ * Locator for the 'Large' text size option in the appearance settings.
+ * This locator targets the radio button for selecting 'Large' text size.
+ *
+ * @param page - Playwright Page instance
+ * @returns A Locator instance pointing to the 'Large' text size radio button
+ */
 const largeTextSizeOption = (page: Page): Locator =>
     page.getByRole('radio', { name: 'Large' });
 
-// Locator for the "Standard" text size option
+/**
+ * Locator for the 'Standard' text size option in the appearance settings.
+ * This locator targets the radio button for selecting 'Standard' text size.
+ *
+ * @param page - Playwright Page instance
+ * @returns A Locator instance pointing to the 'Standard' text size radio button
+ */
 const standardTextSizeButton = (page: Page): Locator =>
     page.getByLabel('Standard');
 
-// Function to assert the total articles number
+/**
+ * Validates that the total number of articles in English is less than the specified limit.
+ * 
+ * @param page - Playwright Page instance
+ * @param limit - The number that the total articles should be less than
+ * 
+ * @example
+ * await assertTotalArticlesLessThan(page, 7000000);
+ */
 export const assertTotalArticlesLessThan = async (page: Page, limit: number): Promise<void> => {
     /** STEP: Assert there are less than the specified number of articles in English */
     const totalArticlesLinkLocator = totalArticlesLink(page);
@@ -30,32 +62,38 @@ export const assertTotalArticlesLessThan = async (page: Page, limit: number): Pr
     expect(totalArticlesNumber).toBeLessThan(limit);
 };
 
-
-// Function to perform the test actions
+/**
+ * Performs the text size validation steps, including validating the presence and enabling of text size options.
+ * 
+ * @param page - Playwright Page instance
+ *
+ * @example
+ * await verifyTextSizeChange(page);
+ */
 export const verifyTextSizeChange = async (page: Page): Promise<void> => {
     /** STEP: Click the link to view the total number of articles in English */
     await totalArticlesLink(page).click();
 
     /** STEP: Select the 'Small' text size option in the appearance settings */
-    const smallTextSizeOption = page.getByRole('radio', { name: 'Small' });
+    const smallTextSizeOptionLocator = smallTextSizeOption(page);
     // Validate that the "Small" option is present and enabled
-    await expect(smallTextSizeOption).toBeVisible();  // Validate presence
-    await expect(smallTextSizeOption).toBeEnabled(); // Validate it's enabled
+    await expect(smallTextSizeOptionLocator).toBeVisible();  // Validate presence
+    await expect(smallTextSizeOptionLocator).toBeEnabled(); // Validate it's enabled
 
     /** STEP: Click the 'Large' text size option to change the display size */
-    const largeTextSizeOption = page.getByRole('radio', { name: 'Large' });
+    const largeTextSizeOptionLocator = largeTextSizeOption(page);
     // Validate that the "Large" option is present and enabled
-    await expect(largeTextSizeOption).toBeVisible();  // Validate presence
-    await expect(largeTextSizeOption).toBeEnabled(); // Validate it's enabled
+    await expect(largeTextSizeOptionLocator).toBeVisible();  // Validate presence
+    await expect(largeTextSizeOptionLocator).toBeEnabled(); // Validate it's enabled
 
     /** STEP: Click the 'Standard' text size option in the appearance settings */
-    const standardTextSizeButton = page.getByLabel('Standard').first();
+    const standardTextSizeButtonLocator = standardTextSizeButton(page);
     // Validate that the "Standard" option is present and enabled
-    await expect(standardTextSizeButton).toBeVisible();  // Validate presence
-    await expect(standardTextSizeButton).toBeEnabled(); // Validate it's enabled
+    await expect(standardTextSizeButtonLocator).toBeVisible();  // Validate presence
+    await expect(standardTextSizeButtonLocator).toBeEnabled(); // Validate it's enabled
 
     // TODO: At this point, we expect that clicking these options would work. 
-    // However,there is a known issue with these buttons being disabled due to a bug [found by automation].
+    // However, there is a known issue with these buttons being disabled due to a bug [found by automation].
     // Assessment note: In a real scenario, these actions should be performed, but currently, they will fail.
 
     // Notes for the reviewer: 
