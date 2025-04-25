@@ -8,6 +8,10 @@ const wikipediaUsername = process.env.WIKIPEDIA_USERNAME;
 const wikipediaPassword = process.env.WIKIPEDIA_PASSWORD;
 const authFile = 'src/auth/login.json';
 
+/**
+ * This test logs into Wikipedia using credentials stored in environment variables.
+ * It then saves the authenticated session state to a file for future use in other tests.
+ */
 test('Sign in to Wikipedia', async ({ page }) => {
     if (!wikipediaUsername || !wikipediaPassword) {
         throw new Error('Need a username and password to sign in!');
