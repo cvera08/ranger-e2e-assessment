@@ -13,7 +13,11 @@ export default defineConfig({
     fullyParallel: false,
     retries: 1,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-    reporter: [['html', { open: 'never' }], ['list']],
+    //reporter: [['html', { open: 'never' }], ['list']],
+    reporter: [
+        ['list'],
+        ['allure-playwright'],
+      ],
     timeout: 180_000,
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
