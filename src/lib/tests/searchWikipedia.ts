@@ -2,6 +2,9 @@ import { Page, test } from '@playwright/test';
 import { searchWikipediaForArtificialIntelligence } from '../modules/searchWikipedia.page';
 
 /**
+ * This test is designed to search for the term "Artificial Intelligence" on Wikipedia
+ * and validate that the latest edit was made by a specific user.
+ * 
  * This test was generated using Ranger's test recording tool. The test is supposed to:
  * 1. Navigate to Wikipedia
  * 2. Go to the "Artificial intelligence" page
@@ -16,11 +19,15 @@ import { searchWikipediaForArtificialIntelligence } from '../modules/searchWikip
  *   - Write your assertion to provide clear diagnostic feedback if it fails
  *
  * Good luck!
+ * 
+ * @param page - Playwright Page instance
+ * @param params - Test parameters (in this case, not used)
  */
 export async function run(page: Page, params: {}) {
     const expectedUser = 'ElegantEgotist'; // Expected username who made the latest edit
-    
+
     await test.step('Search for Artificial Intelligence on Wikipedia', async () => {
+        // Perform search and validate user making the last edit
         await searchWikipediaForArtificialIntelligence(page, expectedUser);
     });
 }
