@@ -1,3 +1,4 @@
+
 # Technical Assessment for QA Engineer at Ranger
 
 ## Demo Videos
@@ -9,6 +10,80 @@ https://github.com/user-attachments/assets/7c109e4c-c9a0-4b42-955c-26d645cd65b0
 - [Demo Video 2](https://github.com/user-attachments/assets/657653da-cd74-48e5-a612-f927d77e3661)  
 
 https://github.com/user-attachments/assets/657653da-cd74-48e5-a612-f927d77e3661
+
+## Example Allure Report
+
+<img width="1728" alt="allure-result" src="https://github.com/user-attachments/assets/dff47813-6222-4e1f-8107-6cf7cf9a6a28" />
+
+## Requirements
+
+### Install Java (for Allure)
+If you wish to use Allure for generating and viewing test reports, you'll need to have Java installed. You can install it using Homebrew:
+
+```bash
+brew install openjdk@11
+```
+
+After installing Java, make sure to configure the `JAVA_HOME` environment variable:
+
+```bash
+export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+Troubleshooting:
+If you need to have openjdk first in your PATH, run:
+```bash
+echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+```
+
+For compilers to find openjdk you may need to set:
+```bash
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+```
+
+Check Installation:
+```bash
+source ~/.zshrc
+java -version
+```
+
+
+### Setup Project
+
+- Install dependencies:
+
+```bash
+npm install
+```
+
+- [Mandatory] Install Chromium for Playwright:
+
+```bash
+npx playwright install chromium
+```
+
+- _[Optional] Install All Playwright browsers:_
+
+```bash
+npx playwright install
+```
+
+### Running Tests
+
+You can run the tests using the following command:
+
+```bash
+npm run test:allure
+```
+
+This will execute all tests in the repository. If you want to run only a specific test, you can add `.only` to the test in the file you want to run.
+
+For example:
+
+```bash
+npx playwright test src/lib/login.test.ts --headed --config src/lib/playwright.config.ts
+```
 
 
 ## Overview
