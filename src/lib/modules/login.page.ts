@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
 /**
  * Locator for the username field on the Wikipedia login page.
@@ -68,4 +68,37 @@ export const loginToWikipedia = async (page: Page, username: string, password: s
     
     // Wait for the page to show the "Welcome to Wikipedia" heading, confirming successful login
     await welcomeToWikipediaLabel(page).waitFor(); // Similar to await page.waitForSelector('div#mp-welcome h1');
+};
+
+/**
+ * Attempts to log in to Wikipedia using the provided credentials.
+ * 
+ * This function performs the following steps:
+ * 1. Fills in the username field with the provided username.
+ * 2. Fills in the password field with the provided password.
+ * 3. Clicks the login button to submit the form.
+ * 4. Waits for the expected error message to appear, indicating a failed login attempt.
+ *
+ * @param page - Playwright Page instance
+ * @param username - The username to log in with
+ * @param password - The password to log in with
+ * @param expectedErrorMessage - The expected error message to validate the login failure
+ *
+ * @example
+ * await loginToWikipediaFailure(page, 'incorrectUser', 'incorrectPass', 'Incorrect username or password');
+ */
+export const loginToWikipediaFailure = async (
+    page: Page, 
+    username: string, 
+    password: string, 
+    expectedErrorMessage: string
+): Promise<void> => {
+    // Fill in the username and password fields and click the login button
+    await usernameField(page).fill(username);
+    await passwordField(page).fill(password);
+    await loginButton(page).click();
+    
+    // Wait for the error message to appear and validate it
+    const errorMessageLocator = await page.locator(`text=${expectedErrorMessage}`).isVisible();
+    expect(errorMessageLocator).toBe(true); // Ensure the error message is shown
 };
