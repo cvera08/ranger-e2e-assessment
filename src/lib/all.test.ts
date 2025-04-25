@@ -1,5 +1,6 @@
 import { test } from '@playwright/test';
 import { run as searchWikipedia } from './tests/searchWikipedia';
+import { runInvalidQuery as searchWikipediaInvalidQuery } from './tests/searchWikipedia';
 import { run as wikipediaHomepageActions } from './tests/wikipediaHomePageActions';
 
 /**
@@ -11,6 +12,17 @@ test(
     { tag: '@id=67ddea97348cfb2bed994986' },
     async ({ page }) => {
         await searchWikipedia(page, {});
+    }
+);
+
+/**
+ * This test performs an invalid search with "#%" and asserts the error message is displayed.
+ */
+test(
+    'Search Wikipedia with an invalid query "#%"',
+    { tag: '@id=67ddea97348cfb2bed994999' },
+    async ({ page }) => {
+        await searchWikipediaInvalidQuery(page, {});
     }
 );
 

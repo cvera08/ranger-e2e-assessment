@@ -99,6 +99,6 @@ export const loginToWikipediaFailure = async (
     await loginButton(page).click();
     
     // Wait for the error message to appear and validate it
-    const errorMessageLocator = await page.locator(`text=${expectedErrorMessage}`).isVisible();
-    expect(errorMessageLocator).toBe(true); // Ensure the error message is shown
+    const errorMessageLocator = page.getByText(expectedErrorMessage);
+    await expect(errorMessageLocator).toBeVisible(); 
 };

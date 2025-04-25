@@ -1,5 +1,5 @@
 import { Page, test } from '@playwright/test';
-import { searchWikipediaForArtificialIntelligence } from '../modules/searchWikipedia.page';
+import { searchWikipediaForArtificialIntelligence, searchWikipediaWithInvalidQuery } from '../modules/searchWikipedia.page';
 
 /**
  * This test is designed to search for the term "Artificial Intelligence" on Wikipedia
@@ -31,3 +31,15 @@ export async function run(page: Page, params: {}) {
         await searchWikipediaForArtificialIntelligence(page, expectedUser);
     });
 }
+
+
+/**
+ * Test that performs an invalid search, for example with "#%", and asserts the error message is displayed.
+ */
+export const runInvalidQuery = async (page: Page, params: {}) => {
+    const invalidSearchTerm = '#%';
+    
+    await test.step('Perform an invalid search', async () => {
+        await searchWikipediaWithInvalidQuery(page, invalidSearchTerm);
+    });
+};

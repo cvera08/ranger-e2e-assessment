@@ -76,3 +76,32 @@ export const searchWikipediaForArtificialIntelligence = async (page: Page, expec
     // Verify that the latest edit was made by the expected user (e.g., 'ElegantEgotist')
     await expect(historyUserLocator(page)).toHaveText(expectedUser);
 };
+
+/**
+ * This function performs an invalid search with a query like "#%" and verifies that the "no results" message appears.
+ * 
+ * Steps:
+ * 1. Navigate to Wikipedia homepage
+ * 2. Enter an invalid search term
+ * 3. Assert that the "no results" message is displayed
+ *
+ * @param page - Playwright Page instance
+ * @param invalidSearchTerm - The invalid search term to be used (e.g., '#%')
+ * 
+ * @example
+ * await searchWikipediaWithInvalidQuery(page, '#%');
+ */
+export const searchWikipediaWithInvalidQuery = async (page: Page, invalidSearchTerm: string): Promise<void> => {
+    // Navigate to Wikipedia's homepage
+    await page.goto('https://www.wikipedia.org/');
+
+    // Fill in the invalid search term into the search field
+    await searchInputField(page).fill(invalidSearchTerm);
+
+    // Perform search by pressing Enter
+    await searchInputField(page).press('Enter');
+
+    // Assert that the "no results" message is visible
+    const noResultsMessage = page.getByText('There were no results matching the query.');
+    await expect(noResultsMessage).toBeVisible();
+};
