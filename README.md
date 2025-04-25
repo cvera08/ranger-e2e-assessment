@@ -17,7 +17,7 @@ https://github.com/user-attachments/assets/657653da-cd74-48e5-a612-f927d77e3661
 
 ## Requirements
 
-### Install Java (for Allure)
+### _[Optional]_ Install Java (for Allure)
 If you wish to use Allure for generating and viewing test reports, you'll need to have Java installed. You can install it using Homebrew:
 
 ```bash
@@ -69,21 +69,47 @@ npx playwright install chromium
 npx playwright install
 ```
 
-### Running Tests
+## Running Tests with Different Reporters
 
 You can run the tests using the following command:
 
+#### Playwright's default runner
+```bash
+npm run test
+```
+
+#### Or using Allure (you need Java installed)
 ```bash
 npm run test:allure
 ```
 
-This will execute all tests in the repository. If you want to run only a specific test, you can add `.only` to the test in the file you want to run.
+## Running Specific Tests
 
-For example:
+The command of the previous section will execute all tests in the repository.
+
+If you want to run only a specific test, you can add `.only` to the test in the file you want to run. For example:
+
+```javascript
+test.only('Test Description', async ({ page }) => {
+  // Your test steps
+});
+```
+
+Alternatively, you can use the following command to run a specific test, example command:
 
 ```bash
 npx playwright test src/lib/login.test.ts --headed --config src/lib/playwright.config.ts
 ```
+
+## Demo for expected Terminal Output
+
+Just an example:  
+
+![terminal_demo](https://github.com/user-attachments/assets/4aec73f8-e9be-4d2d-8fff-f7ce92f2d191)
+
+---
+
+---
 
 
 ## Overview
