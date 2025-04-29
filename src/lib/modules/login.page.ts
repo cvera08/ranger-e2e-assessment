@@ -67,7 +67,8 @@ export const loginToWikipedia = async (page: Page, username: string, password: s
     await loginButton(page).click();
     
     // Wait for the page to show the "Welcome to Wikipedia" heading, confirming successful login
-    await welcomeToWikipediaLabel(page).waitFor(); // Similar to await page.waitForSelector('div#mp-welcome h1');
+    await welcomeToWikipediaLabel(page).waitFor(); // Wait for the element to be visible to avoid the test running faster than the UI, which could lead to false failures
+    await expect(welcomeToWikipediaLabel(page)).toBeVisible(); // Verifies that the "Welcome to Wikipedia" heading is visible
 };
 
 /**
